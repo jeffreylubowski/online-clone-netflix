@@ -162,6 +162,48 @@ nav .signin:hover, .btn:hover {
   color: #999;
 }
 
+#features #pickprice h2 {
+  font-size: 22px;
+  display: inline;
+  margin: 0 40px 0 0;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+table, thead, tbody {
+  border-collapse: collapse;
+}
+
+thead {
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+thead th {
+  padding: 10px;
+}
+
+tbody {
+  color: #999;
+}
+
+tbody td {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+tbody tr:nth-child(2n) {
+  background-color: #222;
+}
+
+tbody td:first-child {
+  text-align: left;
+}
+
 .columns {
   display: flex;
 }

@@ -589,3 +589,126 @@ There are some new terms to be explained:
 
 * `div:first-child` is a special selector that targets the first found div element inside the `#features #watchanywhere`.
 * We've also disabled `flex` for the `is-narrow` column, so the button won't extend to columns full-width.
+
+Finally, let's move to the last feature. For that we'd need some icons for showing checkmarks and crosses. We'll use the popular [FontAwesome](http://fontawesome.io/icons/) icon library. The so called "font icons" allow us to use vector shaped icons and style them the same way we would style texts. So, let's link this additional resource:
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+And now we can add the content with the icons:
+
+    <section class="center size-70" id="pickprice" data-id="pickprice">
+      <div class="text-center">
+        <h2>
+          Choose one plan and watch everything on Netflix.
+        </h2>
+        <button class="btn btn-large">JOIN FOR A FREE MONTH</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Basic</th>
+            <th>Standard</th>
+            <th>Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monthly price after free month ends on 6/27/17</td>
+            <td>EUR7.99</td>
+            <td>EUR9.99</td>
+            <td>EUR11.99</td>
+          </tr>
+          <tr>
+            <td>HD available</td>
+            <td><i class="fa fa-times"></i></td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+          </tr>
+          <tr>
+            <td>Ultra HD available</td>
+            <td><i class="fa fa-times"></i></td>
+            <td><i class="fa fa-times"></i></td>
+            <td><i class="fa fa-check"></i></td>
+          </tr>
+          <tr>
+            <td>Screens you can watch on at the same time</td>
+            <td>1</td>
+            <td>2</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Watch on your laptop, TV, phone and tablet</td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+          </tr>
+          <tr>
+            <td>Unlimited movies and TV shows</td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+          </tr>
+          <tr>
+            <td>Cancel anytime</td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+          </tr>
+          <tr>
+            <td>First month free</td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+            <td><i class="fa fa-check"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+And the corresponding CSS:
+
+    #features #pickprice h2 {
+      font-size: 22px;
+      display: inline;
+      margin: 0 40px 0 0;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    table, thead, tbody {
+      border-collapse: collapse;
+    }
+
+    thead {
+      color: white;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+
+    thead th {
+      padding: 10px;
+    }
+
+    tbody {
+      color: #999;
+    }
+
+    tbody td {
+      text-align: center;
+      padding: 10px 20px;
+    }
+
+    tbody tr:nth-child(2n) {
+      background-color: #222;
+    }
+
+    tbody td:first-child {
+      text-align: left;
+    }
+
+The special [`tr:nth-child(2n)`](https://css-tricks.com/how-nth-child-works/) selector means we will choose every second row and add a background color to it.
