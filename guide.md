@@ -176,7 +176,11 @@ The fonts do not look similar to ones on the Netflix site, so let's add them to 
       margin: 0;
     }
 
-Notice how we can target multiple elements in CSS by separating them with a comma. The `font-family` sets the font for the texts on the page.
+    * {
+      box-sizing: border-box;
+    }
+
+Notice how we can target multiple elements in CSS by separating them with a comma. The `font-family` sets the font for the texts on the page. The `box-sizing: border-box` is something I recommend you use always, as it will include the border and padding in the calculation of the width and height of the elements you style.
 
 ## Adding pitch section
 
