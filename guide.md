@@ -45,7 +45,7 @@ Let's add some more tags:
       <body>
         <h1>See what's next.</h1>
       </body>
-  
+
 * Firstly, we'll add the `<title>` of the page just like on the Netflix site.
 * Then, we'll add the `<meta>` tag defining the character encoding of this document, so that the browser would know how to show special characters in different languages.
 * Finally, we'll extend the `<body>` section with something interesting for the users, the main heading `<h1>` as on the Web site.
@@ -55,11 +55,11 @@ Let's add some more tags:
 The page looks very dull, so let's add some appearance to it with CSS. As mentioned earlier, the HTML `<head>` section is used to link to any additional resources, and that's exactly where we'll link to our CSS file.
 
         <link href="css/style.css" rel="stylesheet"/>
-        
+
 
 * `href` is an attribute of the `<link>` tag, which says where to look a CSS file.
 * So, this would search for a file named `style.css` in the `css` directory relative to our html file. As you see, CSS has it's own extension `.css`.
-* The `rel` attribute denotes that we're linking *stylesheet*, and not icons, or anything else. 
+* The `rel` attribute denotes that we're linking *stylesheet*, and not icons, or anything else.
 * Create a `css` directory with a `style.css` file:
 
     body {
@@ -93,7 +93,7 @@ Let's add page navigation with a Netflix logo next.
     <nav>
       <a href="">Netflix</a>
     </nav>
-    
+
 
 So, this was our first link inside a `<nav>` tag, which defines the navigational items on the page. In contrast to `link`'s `href` attribute, here we could link to another page. For example, we could have a page named `about.html` and link to it, however leaving it empty make we could make it always point to the current page.
 
@@ -120,17 +120,17 @@ And CSS:
       display: inline-block;
       line-height: 90px;
     }
-    
+
     header nav {
       height: 90px;
     }
-    
+
     nav img {
       max-width: 167px;
       max-height: 45px;
       vertical-align: middle;
     }
-    
+
     nav .logo {
       margin-left: 3%;
     }
@@ -145,7 +145,7 @@ Finally, let's add the *Sign in* button to the navigation on the right:
     <a class="signin" href="https://www.netflix.com/login">
       Sign In
     </a>
-    
+
     nav .signin {
       color: #fff;
       float: right;
@@ -245,3 +245,232 @@ How about adding hover effects, meaning when you mouse over the buttons? Well, w
       background: #f40612;
     }  
 
+## 3 features with flex box
+
+Now that we're done with the header, let's move on to the Netflix features (the 3 benefits). First we'll create another navigation with 3 images, headings and links:
+
+    <div id="features">
+      <nav>
+        <div>
+          <a href="#">
+            <img alt="Cancel anytime" src="img/cancel.svg"/>
+            <h2>
+              No commitments
+              <br/>
+              Cancel online at anytime
+            </h2>
+          </a>
+
+          <a href="#">
+            <img alt="Watch anywhere" src="img/watchanywhere.svg"/>
+            <h2>
+              Watch anywhere
+            </h2>
+          </a>
+
+          <a href="#">
+            <img alt="Pick your price" src="img/pickprice.svg"/>
+            <h2>
+              Pick your price
+            </h2>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+* We've used a new tag called `<div>`, which is used to define a division. We also gave it an `id` that we can use later in CSS. In contrast to classes, IDs are unique, so there could be only element with the same ID on the page.
+* We've also added `alt` property to the `<img>` tag, which helps search engines like Google to identify these images as text.
+* Finally, we've use the `<br/>` tag, which is used to leave a line break between the elements.
+
+But it doesn't look quite right, so let's style them up:
+
+    #features > nav {
+      padding-top: 35px;
+      background-color: #141414;
+      border-bottom: 2px solid #3d3d3d;
+    }
+
+    #features > nav a {
+      text-decoration: none;
+      text-align: center;
+      vertical-align: top;
+      font-weight: bold;
+      color: #777;
+      height: 125px;
+      line-height: 20px;
+    }
+
+    #features > nav a:hover {
+      color: white;
+    }
+
+    #features > nav a img {
+      height: 49px;
+    }
+
+    #features > nav a h2 {
+      margin: 10px 0 0;
+      font-size: 1em;
+    }
+
+* Notice how we used here the `>` selector that denotes that we want to match the first child element inside the `features` div.
+
+Let's refresh the page and things look the same, but *not* positioned correctly. We'll fix it with a CSS feature called [flex box](https://css-tricks.com/snippets/css/a-guide-to-flexbox/). Flexbox makes it easy to create responsive/flexible layouts with CSS.
+
+We'll modify our features with more classes we can style later:
+
+    <div class="center columns size-80">
+      <a class="column" href="#">
+        <img alt="Cancel anytime" src="img/cancel.svg"/>
+        <h2>
+          No commitments
+          <br/>
+          Cancel online at anytime
+        </h2>
+      </a>
+
+      <a class="column" href="#">
+        <img alt="Watch anywhere" src="img/watchanywhere.svg"/>
+        <h2>
+          Watch anywhere
+        </h2>
+      </a>
+
+      <a class="column" href="#">
+        <img alt="Pick your price" src="img/pickprice.svg"/>
+        <h2>
+          Pick your price
+        </h2>
+      </a>
+    </div>
+
+And finally add some CSS helpers:
+
+    .columns {
+      display: flex;
+    }
+
+    .column {
+      display: block;
+      flex-basis: 0;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    .center {
+      margin: 0 auto;
+    }
+
+    .size-80 {
+      width: 80%;
+    }
+
+* Firstly, we've defined the columns to display with flex.
+* Each column is set to `flex-grow` to `1`, which means that the columns will take full width and distributed equally. We also gave it a property of `flex-shrink`, which makes the columns to shrink if necessary.
+* Notice our new class `.center` with a new definition of margin `auto`, which means it will automatically center the element horizontally.
+* Finally, the `.size-80` is a helper class that makes it easier for us to apply width of 80% to any element.
+
+# Adding tabs with a bit of JavaScript
+
+When you click on each feature section, the content of the bottom part changes - so this functionality is called *Tabs*. Since this behaviour goes beyond  the structure (HTML) and appearance (CSS), we'll need a bit of JavaScript.
+
+As we're not covering JavaScript concepts in this tutorial, we'll just quickly skim thru this section:
+
+Place these lines right before the end of the `<body>` tag.
+
+      ...
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="js/app.js"></script>
+    </body>
+
+
+Create a file named `app.js` under `js` folder:
+
+    $(function() {
+      var tabs = $('#features > nav a');
+      var tabsContent = $('#features > article > section');
+
+      tabs.click(function(e) {
+        e.preventDefault();
+
+        var that = $(this);
+
+        tabs.removeClass('is-selected');
+        that.addClass('is-selected');
+        tabsContent.removeClass('is-selected');
+
+        tabsContent
+          .filter((i, tab) => $(tab).data('id') === that.data('id'))
+          .addClass('is-selected');
+      });
+    });
+
+Briefly, the code snippet will compare the IDs of feature navigation elements and the content, and if they match, add the `is-selected` class, while also removing it from other elements.
+
+Let's test it out by creating a layout for our feature content:
+
+    <nav>
+      <div class="center columns size-80">
+        <a class="column is-selected" href="#" data-id="cancelanytime">
+          <img alt="Cancel anytime" src="img/cancel.svg"/>
+          <h2>
+            No commitments
+            <br/>
+            Cancel online at anytime
+          </h2>
+        </a>
+
+        <a class="column" href="#" data-id="watchanywhere">
+          <img alt="Watch anywhere" src="img/watchanywhere.svg"/>
+          <h2>
+            Watch anywhere
+          </h2>
+        </a>
+
+        <a class="column" href="#" data-id="pickprice">
+          <img alt="Pick your price" src="img/pickprice.svg"/>
+          <h2>
+            Pick your price
+          </h2>
+        </a>
+      </div>
+    </nav>
+
+    <article>
+      <section class="is-selected" data-id="cancelanytime">
+        About feature 1
+      </section>
+
+      <section data-id="watchanywhere">
+        About feature 2
+      </section>
+
+      <section data-id="pickprice">
+        About feature 3
+      </section>
+    </article>
+
+* We've defined the content of our features in an `<article>` and respective `<section>`s.
+* Also, notice how we've used a new `data-id` attribute in both the tab link and the content, so that our JS code can match them.
+* Finally, we've set the class `is-selected` to the first feature.
+
+Now, we only lack a bit of CSS:
+
+    #features > nav a.is-selected {
+      border-bottom: 5px solid #e50914;
+      color: white;
+    }
+
+    ...
+
+    #features > article > section {
+      display: none;
+      padding: 40px 0;
+    }
+
+    #features > article > section.is-selected {
+      display: block;
+    }
+
+* By default, we're hiding the feature section with `display: none`.
+* The `is-selected` class sets it back to `block`.
