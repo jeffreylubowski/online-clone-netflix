@@ -76,10 +76,10 @@ Next up, let's add a background image to the page into a so called *header* sect
     </header>
 
 * `<header>` is an HTML tag that represents a container for an introductory content or navigational links.
-* Back to CSS and set the background image to the header:
+* Back to CSS and set the background image to the header. `background` CSS property allows to specify multiple backgrounds, so we will put the image underneath and the black gradient on top.
 
     header {
-      background-image: url('../img/header-background.jpg');
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.05)), url('../img/header-background.jpg')
       height: 100vh;
     }
 
