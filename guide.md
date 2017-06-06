@@ -524,3 +524,68 @@ And corresponding CSS:
     .size-70 {
       width: 70%;
     }
+
+Next up moving to the second feature:
+
+    <section class="center size-80" id="watchanywhere" data-id="watchanywhere">
+      <div class="columns">
+        <h2 class="column">
+          Watch TV shows and movies anytime, anywhere — personalized for you.
+        </h2>
+        <button class="btn btn-large column is-narrow">JOIN FOR A FREE MONTH</button>
+      </div>
+
+      <div class="columns size-90 center">
+        <div class="column text-center">
+          <img src="img/asset_TV_UI.png"/>
+          <h3>Watch on your TV</h3>
+          <p>Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+        </div>
+
+        <div class="column text-center">
+          <img src="img/asset_mobile_tablet_UI_2.png"/>
+          <h3>Watch instantly or download for later</h3>
+          <p>Available on phone and tablet, wherever you go.</p>
+        </div>
+
+        <div class="column text-center">
+          <img src="img/asset_website_UI.png"/>
+          <h3>Use any computer</h3>
+          <p>Watch right on Netflix.com.</p>
+        </div>
+      </div>
+    </section>
+
+Notice, how we've added an ID for this section so we can use different styles for this element.
+
+    #features #watchanywhere h2 {
+      font-size: 19px;
+      padding-right: 1em;
+      margin: 0 0 20px;
+    }
+
+    #features #watchanywhere > div:first-child {
+      margin-bottom: 60px;
+    }
+
+    #features #watchanywhere p {
+      color: #999;
+    }
+
+    ...
+    .column.is-narrow {
+      flex: none;
+    }
+    ...
+    .size-90 {
+      width: 90%;
+    }
+    ...
+    .text-center {
+      text-align: center;
+    }
+
+There are some new terms to be explained:
+
+* `div:first-child` is a special selector that targets the first found div element inside the `#features #watchanywhere`.
+* We've also disabled `flex` for the `is-narrow` column, so the button won't extend to columns full-width.

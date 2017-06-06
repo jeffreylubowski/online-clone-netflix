@@ -148,6 +148,20 @@ nav .signin:hover, .btn:hover {
   max-width: 100%;
 }
 
+#features #watchanywhere h2 {
+  font-size: 22px;
+  padding-right: 1em;
+  margin: 0 0 20px;
+}
+
+#features #watchanywhere > div:first-child {
+  margin-bottom: 60px;
+}
+
+#features #watchanywhere p {
+  color: #999;
+}
+
 .columns {
   display: flex;
 }
@@ -159,8 +173,16 @@ nav .signin:hover, .btn:hover {
   flex-shrink: 1;
 }
 
+.column.is-narrow {
+  flex: none;
+}
+
 .center {
   margin: 0 auto;
+}
+
+.size-90 {
+  width: 90%;
 }
 
 .size-80 {
@@ -169,4 +191,8 @@ nav .signin:hover, .btn:hover {
 
 .size-70 {
   width: 70%;
+}
+
+.text-center {
+  text-align: center;
 }
