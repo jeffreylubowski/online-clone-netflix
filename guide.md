@@ -805,3 +805,43 @@ Finally, we'll add the helper classes we used in HTML to style the positioning:
     }
 
 Notice we've used the new property of the flex box called `flex-wrap: wrap`, which makes the elements wrap onto multiple lines if they don't fit the column horizontally.
+
+The last bit on this page is the language selector and the copyright text. For that we'll use the HTML `<select>` tag and the icon from our FontAwesome library:
+
+    <div id="lang-selection">
+      <i class="fa fa-globe" aria-hidden="true"></i>
+      <select tabindex="0">
+        <option value="es">Español</option>
+        <option selected value="en">English</option>
+      </select>
+    </div>
+
+    <p id="company">Netflix Spain</p>
+
+And the corresponding CSS:
+
+    #lang-selection {
+      margin-top: 20px;
+      border: 1px solid #333;
+      border-radius: 2px;
+      display: inline-block;
+      padding-left: 15px;
+    }
+
+    #lang-selection select {
+      background-color: #000;
+      border: none;
+      color: #999;
+      font-size: 14px;
+      width: 130px;
+      height: 48px;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    #company {
+      font-size: 13px;
+      margin: 24px 0 50px;
+    }
+
+That's it folks!
