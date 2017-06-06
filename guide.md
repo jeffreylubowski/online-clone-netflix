@@ -478,3 +478,49 @@ Now, we only lack a bit of CSS:
 
 * By default, we're hiding the feature section with `display: none`.
 * The `is-selected` class sets it back to `block`.
+
+## Adding features content and related styles
+
+Now that we have the functional tabs and placeholders for the features, let's add some real content.
+
+    <section class="is-selected center size-70" data-id="cancelanytime">
+      <div class="columns">
+        <div class="column">
+          <h2>
+            If you decide Netflix isn't for you - no problem. No commitment. Cancel online anytime.
+          </h2>
+          <button class="btn btn-large">JOIN FOR A FREE MONTH</button>
+        </div>
+
+        <div class="column">
+          <img src="img/cancelanytime_withdevice.png"/>
+        </div>
+      </div>
+    </section>
+
+And corresponding CSS:
+
+    .btn-large {
+      padding: 18px 20px;
+    }
+    ...
+
+    #features > article {
+      margin-bottom: 120px;
+    }
+    ...
+
+    #features > article h2 {
+      font-size: 32px;
+      font-weight: 400;
+      margin: 60px 0 20px;
+    }
+
+    #features img {
+      max-width: 100%;
+    }
+    ...
+
+    .size-70 {
+      width: 70%;
+    }
