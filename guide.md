@@ -33,6 +33,8 @@ Let me explain it to you line-by-line:
 
 * Finally, we have the `<body>` tag, which defines what will be visible to the users looking at this page.
 
+The HTML element reference can be found [here](http://htmlreference.io).
+
 Now save the file and open it in the browser. Nothing interesting, right?
 
 Let's add some more tags:
@@ -86,16 +88,18 @@ Next up, let's add a background image to the page into a so called *header* sect
 * The `background-image` property sets a background for an element  at a given location.
 * The `height` property will set the header to `100vh`, which means 100% of viewport height, where viewport is the screen.
 
+The CSS reference can be found [here](http://cssreference.io).
+
 ## Adding navigation and logo with SVG
 
 Let's add page navigation with a Netflix logo next.
 
     <nav>
-      <a href="">Netflix</a>
+      <a href="#">Netflix</a>
     </nav>
 
 
-So, this was our first link inside a `<nav>` tag, which defines the navigational items on the page. In contrast to `link`'s `href` attribute, here we could link to another page. For example, we could have a page named `about.html` and link to it, however leaving it empty make we could make it always point to the current page.
+The `<nav>` tag defines navigational items on the page. The `<a>` tag is similar to `<link>` we've seen earlier, but it can have content and is used in the `<body>` section, as opposed to the `<head>` with `<link>`. `<a>` tag can be used to link to other pages. For example, we could have a page named `about.html` and link to it.
 
 Now let's replace the text with an actual Netflix logo. And for that we'll use a new tag, called `<img>`.
 
@@ -110,7 +114,7 @@ As you see, `<img>` tag has an attribute `src` that links to an actual image. Bu
       height: 45px;
     }
 
-We'll make a few more adjustments to the position of the logo and navigation. First of all, we'll define a class for an `<a>` tag so that we can reference it in CSS and set the height to the navigation.
+We'll make a few more adjustments to the navigation and position of the logo. First of all, we'll define a class for an `<a>` tag so that we can reference it in CSS and set the height to the navigation.
 
     <a class="logo" href="">
 
@@ -214,7 +218,7 @@ Now, we'll add the pitch area.
 
 * This is another way of specifying `margin`. Instead of defining each margin (`margin-right`, etc.), we only set one margin for values top, right, bottom, left. Alternatively, we could condense it further and set the first value for both top and bottom, which is 0, and the second part for left and right, which is 3% as with the logo.
 * `position` property specifies the positioning method used. It's used in conjunction with `top` property, which says to have 35% from the top of the page.
-* `font-size` is defined in [viewport units](https://css-tricks.com/viewport-sized-typography/), telling to use 1.8% of viewport width.
+* `font-size` is defined in [viewport units](https://css-tricks.com/viewport-sized-typography/), telling to use 1.8% of viewport width. The next font size is defined in `em`, which means relative to the current font size, 3x in this case.
 
 ## Adding JOIN button and hover effects
 
@@ -319,7 +323,7 @@ But it doesn't look quite right, so let's style them up:
 
 * Notice how we used here the `>` selector that denotes that we want to match the first child element inside the `features` div.
 
-Let's refresh the page and things look the same, but *not* positioned correctly. We'll fix it with a CSS feature called [flex box](https://css-tricks.com/snippets/css/a-guide-to-flexbox/). Flexbox makes it easy to create responsive/flexible layouts with CSS.
+Let's refresh the page and things look the same, but *not* positioned correctly. We'll fix it with a CSS feature called [flex box](http://cssreference.io/flexbox). Flexbox makes it easy to create responsive/flexible layouts with CSS.
 
 We'll modify our features with more classes we can style later:
 
